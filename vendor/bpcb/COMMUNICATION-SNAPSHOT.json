@@ -1,0 +1,33 @@
+{
+  "upstream_project": "BPCB",
+  "version": "0.16.0",
+  "snapshot": "independent local copy; no shared source/build tree",
+  "excluded": [
+    "OpenOCD",
+    "firmware manager",
+    "external process runner",
+    "compatibility registry",
+    "firmware bundle"
+  ],
+  "files": {
+    "communication.h": "f6e801a779dbd7a35bbd0a4a8593aa38736fc88ad681c14674cedcbb07b06f56",
+    "communication/ch347.c": "ebd429cd8a391bda8f5cf4106df756bb767b0f82dd1b52a5a23f94863bc64be1",
+    "communication/config.c": "13a485b711bf80df753aa2df007e64c30f70a267743fcb255e31a932b11f00a5",
+    "communication/frame.c": "487f9dff0088204db8c6fdd517532db4e42b302ed928f93a4fe57b05c03d7014",
+    "communication/hid.c": "429ae411dcb435eaf074d84e1bfda7bcbad189afad2533df5d4fd17a2d35b964",
+    "communication/internal.h": "87edec4c82a7c20701a6aacfac97dd9e158ea3ae2b37a0823ff9aede58849d7f",
+    "communication/lab.c": "abb4a5ec9cf7a5919e0e756dd9fbfa59b19060332848ff223f1d9063a57a55c6",
+    "communication/peripherals.c": "2198b1fd755be07b0590bea9d94e7cad7569fcd2d9fe7faf3d6e9309e73cdcc5",
+    "communication/protocol.c": "64daa781789a229bd05a2618843a729ae0973d31a5306c0eee33a1b3abaa315e",
+    "communication/qualification.c": "b2b38ade71bf5966d340132b807888d7376fbf59fc6733fcfe93668d70fe7947",
+    "communication/replay.c": "d97b4f9459242ca65612a2bb00f700e1107b5f2fa7539005e56f4ed952b220f5",
+    "communication/serial.c": "e1c65dbde658595e91902d70d0463bae2212a53b3cdd8958629ab08d4e33f41b",
+    "communication/session.c": "07b89c60cc4d3a41bd269d13fb63cfd886f71b640ea2472d09771b140c035e39",
+    "communication/tools.c": "250ce00189d9d71173e20434410a11254ece85f53ef6cab3f24ad28f4ab06282",
+    "communication/uart_protocol.c": "56e6abc10211fdeb667910f4ff9a4716f35bea3634d1ea1ab930f01a5960cd5d",
+    "communication/usb.c": "36f72b048346fb20ecfa12a3c8710c7cbbd75e8f79e51e13df0cb2b0257bfb72",
+    "lab.h": "9aa68853f3acd0e411f3bc892491b8578a802cf98b9cd695723b56d1e91ce6ed",
+    "wiring.c": "1ebc8c167cfde5da8a0e2fda56c4c2c0affe0d158b47991e9125d62c80677875",
+    "workbench.h": "02d55d584376147f47010c1e3aa586fe895094af1fca9fa92d93870a1293a4dd"
+  }
+}

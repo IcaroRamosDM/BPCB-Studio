@@ -1,0 +1,200 @@
+[
+  {
+    "key": "id",
+    "label": "Nome usado nas etapas",
+    "type": "id",
+    "default": "saida1",
+    "help": "Nome curto e único; use letras, números e sublinhado."
+  },
+  {
+    "key": "label",
+    "label": "O que este sinal controla ou mede?",
+    "type": "text",
+    "default": "Saída 1",
+    "help": "Ex.: CARREGA, tensão HV, corrente de fuga."
+  },
+  {
+    "key": "location",
+    "label": "Onde conectar a ponta ou o cabo?",
+    "type": "text",
+    "default": "TP1",
+    "help": "Indique testpoint, conector e número do pino."
+  },
+  {
+    "key": "return",
+    "label": "Onde conectar o retorno?",
+    "type": "text",
+    "default": "GND da placa",
+    "help": "Especifique o retorno correto; nem todo negativo é GND."
+  },
+  {
+    "key": "direction",
+    "label": "Este canal é entrada ou saída?",
+    "type": "choice",
+    "default": "output",
+    "help": "Entradas são lidas; saídas são comandadas.",
+    "options": [
+      {
+        "id": "input",
+        "label": "Entrada / leitura"
+      },
+      {
+        "id": "output",
+        "label": "Saída / comando"
+      }
+    ]
+  },
+  {
+    "key": "device",
+    "label": "Dispositivo associado",
+    "type": "device",
+    "default": "",
+    "help": "Escolha um dispositivo cadastrado."
+  },
+  {
+    "key": "channel",
+    "label": "Canal ou pino, começando em zero",
+    "type": "integer",
+    "default": 0,
+    "help": "TCA: 0..7; ADC e DAC: 0..3.",
+    "min": 0,
+    "max": 7
+  },
+  {
+    "key": "unit",
+    "label": "Unidade apresentada",
+    "type": "text",
+    "default": "V",
+    "help": "Ex.: V, A, ohm ou lógico."
+  },
+  {
+    "key": "min",
+    "label": "Menor valor permitido",
+    "type": "number",
+    "default": 0,
+    "help": "O executor recusa leituras e comandos fora desta faixa.",
+    "min": -1000000000.0,
+    "max": 1000000000.0
+  },
+  {
+    "key": "max",
+    "label": "Maior valor permitido",
+    "type": "number",
+    "default": 1,
+    "help": "Defina pela eletrônica e pela montagem real.",
+    "min": -1000000000.0,
+    "max": 1000000000.0
+  },
+  {
+    "key": "safe",
+    "label": "Valor de encerramento da saída",
+    "type": "number",
+    "default": 0,
+    "help": "Comando tentado ao concluir, cancelar ou falhar; não confirma descarga física.",
+    "min": -1000000000.0,
+    "max": 1000000000.0
+  },
+  {
+    "key": "stop_order",
+    "label": "Ordem de encerramento",
+    "type": "integer",
+    "default": 10,
+    "help": "Menor número é encerrado primeiro; escolha a ordem elétrica correta.",
+    "min": 0,
+    "max": 1000
+  },
+  {
+    "key": "interlock",
+    "label": "Grupo de exclusão (opcional)",
+    "type": "text",
+    "default": "",
+    "help": "Saídas do mesmo grupo não podem ficar simultaneamente diferentes do valor de encerramento."
+  },
+  {
+    "key": "simulate",
+    "label": "Leitura de exemplo na simulação",
+    "type": "number",
+    "default": 0,
+    "help": "A simulação não acessa USB nem a PCB.",
+    "min": -1000000000.0,
+    "max": 1000000000.0
+  },
+  {
+    "key": "diagnostic",
+    "label": "Oferecer em Testes Específicos?",
+    "type": "boolean",
+    "default": true,
+    "help": "Gera um teste individual com instruções, limites e encerramento."
+  },
+  {
+    "key": "register",
+    "label": "Genérico: endereço do registrador",
+    "type": "integer",
+    "default": 0,
+    "help": "Somente para o módulo Registrador I2C genérico.",
+    "min": 0,
+    "max": 255
+  },
+  {
+    "key": "width",
+    "label": "Genérico: quantidade de bytes",
+    "type": "integer",
+    "default": 1,
+    "help": "Comprimento do registrador.",
+    "min": 1,
+    "max": 4
+  },
+  {
+    "key": "endian",
+    "label": "Genérico: ordem dos bytes",
+    "type": "choice",
+    "default": "big",
+    "help": "Consulte o datasheet.",
+    "options": [
+      {
+        "id": "big",
+        "label": "Mais significativo primeiro"
+      },
+      {
+        "id": "little",
+        "label": "Menos significativo primeiro"
+      }
+    ]
+  },
+  {
+    "key": "shift",
+    "label": "Genérico: deslocamento dos bits",
+    "type": "integer",
+    "default": 0,
+    "help": "Bits descartados à direita.",
+    "min": 0,
+    "max": 31
+  },
+  {
+    "key": "bits",
+    "label": "Genérico: bits úteis",
+    "type": "integer",
+    "default": 8,
+    "help": "Tamanho do campo após o deslocamento.",
+    "min": 1,
+    "max": 32
+  },
+  {
+    "key": "gain",
+    "label": "Genérico: ganho, unidade por código",
+    "type": "number",
+    "default": 1,
+    "help": "Leitura = código × ganho + offset; escrita usa a relação inversa.",
+    "min": 1e-12,
+    "max": 1000000000.0
+  },
+  {
+    "key": "offset",
+    "label": "Genérico: offset",
+    "type": "number",
+    "default": 0,
+    "help": "Valor somado após o ganho.",
+    "min": -1000000000.0,
+    "max": 1000000000.0
+  }
+]

@@ -1,0 +1,63 @@
+[
+  {
+    "key": "id",
+    "label": "Identificador do teste",
+    "type": "id",
+    "default": "teste1",
+    "help": "Nome estável para atualizar o pacote."
+  },
+  {
+    "key": "title",
+    "label": "Nome apresentado ao operador",
+    "type": "text",
+    "default": "Novo teste",
+    "help": "Ex.: Resistência HV, Isolação ou Verificar alimentação."
+  },
+  {
+    "key": "purpose",
+    "label": "O que este teste verifica?",
+    "type": "multiline",
+    "default": "",
+    "help": "Explique o objetivo e o que o resultado permite concluir."
+  },
+  {
+    "key": "instructions",
+    "label": "Conexões e orientações deste teste",
+    "type": "multiline",
+    "default": "",
+    "help": "Indique os cabos e instrumentos. Separe assuntos com uma linha vazia."
+  },
+  {
+    "key": "expected",
+    "label": "O que o operador deve esperar?",
+    "type": "multiline",
+    "default": "",
+    "help": "Use valores entre chaves: {tensao:.2f}. A resistência de referência não é obrigatória."
+  },
+  {
+    "key": "timeout",
+    "label": "Tempo máximo total (s)",
+    "type": "number",
+    "default": 300,
+    "help": "Inclui pausas do operador. Ao exceder, a sequência é cancelada.",
+    "min": 1,
+    "max": 3600
+  },
+  {
+    "key": "mode",
+    "label": "Como este teste será executado no BPCB?",
+    "type": "choice",
+    "default": "hardware",
+    "help": "O botão Simular do Studio sempre ignora o hardware.",
+    "options": [
+      {
+        "id": "hardware",
+        "label": "Real · placa ou medições externas"
+      },
+      {
+        "id": "simulation",
+        "label": "Somente simulação"
+      }
+    ]
+  }
+]

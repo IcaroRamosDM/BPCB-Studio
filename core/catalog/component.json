@@ -1,0 +1,56 @@
+[
+  {
+    "key": "ref",
+    "label": "Referência no esquemático",
+    "type": "id",
+    "default": "R1",
+    "help": "Ex.: R2, C1, D1 ou F1."
+  },
+  {
+    "key": "kind",
+    "label": "Tipo de componente",
+    "type": "choice",
+    "default": "resistor",
+    "help": "Cadastre somente componentes que fazem sentido substituir.",
+    "options": [
+      {
+        "id": "resistor",
+        "label": "Resistor"
+      },
+      {
+        "id": "capacitor",
+        "label": "Capacitor"
+      },
+      {
+        "id": "diode",
+        "label": "Diodo"
+      },
+      {
+        "id": "fuse",
+        "label": "Fusível"
+      },
+      {
+        "id": "inductor",
+        "label": "Indutor"
+      },
+      {
+        "id": "other",
+        "label": "Outro passivo"
+      }
+    ]
+  },
+  {
+    "key": "value",
+    "label": "Valor realmente montado",
+    "type": "text",
+    "default": "1k Ω",
+    "help": "Ex.: 4.4k Ω ou 3.3 uF. Nas fórmulas, os valores usam unidades básicas: ohm, farad etc."
+  },
+  {
+    "key": "description",
+    "label": "Descrição (opcional)",
+    "type": "multiline",
+    "default": "",
+    "help": "Explique potência, tensão máxima, tolerância e efeito nos testes."
+  }
+]

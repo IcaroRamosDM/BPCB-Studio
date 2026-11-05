@@ -1,0 +1,314 @@
+[
+  {
+    "kind": "board",
+    "field": {
+      "key": "session_title",
+      "label": "Nome do roteiro de ensaios",
+      "type": "text",
+      "default": "Roteiro da bancada",
+      "help": "Nome apresentado na sessão guiada e no manual.",
+      "optional": true
+    }
+  },
+  {
+    "kind": "board",
+    "field": {
+      "key": "session_order",
+      "label": "Ordem sugerida dos testes",
+      "type": "multiline",
+      "default": "",
+      "help": "Um identificador de teste por linha, até 16; cada ensaio continua exigindo início manual no BPCB.",
+      "optional": true
+    }
+  },
+  {
+    "kind": "test",
+    "field": {
+      "key": "require_calibration",
+      "label": "Exigir calibração dos canais associados?",
+      "type": "boolean",
+      "default": false,
+      "help": "Na execução física, interrompe antes de comandos se um canal associado não tiver calibração válida.",
+      "optional": true
+    }
+  },
+  {
+    "kind": "test",
+    "field": {
+      "key": "simulation_fault",
+      "label": "Falha simulada",
+      "type": "choice",
+      "default": "none",
+      "help": "Só afeta Simular; nunca modifica a rotina física.",
+      "optional": true,
+      "options": [
+        {
+          "id": "none",
+          "label": "Sem falha"
+        },
+        {
+          "id": "cancel",
+          "label": "Cancelamento"
+        },
+        {
+          "id": "communication",
+          "label": "Perda de comunicação"
+        },
+        {
+          "id": "timeout",
+          "label": "Tempo esgotado"
+        }
+      ]
+    }
+  },
+  {
+    "kind": "test",
+    "field": {
+      "key": "simulation_at",
+      "label": "Simular falha antes da etapa",
+      "type": "target",
+      "default": "",
+      "help": "Escolha a etapa atingida pelo cenário de falha.",
+      "optional": true
+    }
+  },
+  {
+    "kind": "signal",
+    "field": {
+      "key": "simulation_values",
+      "label": "Sequência de leituras simuladas",
+      "type": "multiline",
+      "default": "",
+      "help": "Valores na unidade do sinal, separados por ponto e vírgula. Cada leitura avança; a última se repete. Vazio usa o exemplo fixo.",
+      "optional": true
+    }
+  },
+  {
+    "kind": "signal",
+    "field": {
+      "key": "plot",
+      "label": "Acompanhar este sinal no gráfico?",
+      "type": "boolean",
+      "default": false,
+      "help": "Cada leitura gera uma amostra com tempo, origem e unidade.",
+      "optional": true
+    }
+  },
+  {
+    "kind": "signal",
+    "field": {
+      "key": "calibration_channel",
+      "label": "Canal do perfil de calibração",
+      "type": "choice",
+      "default": "none",
+      "help": "Correção linear do perfil da placa física selecionado no BPCB. Só associe entradas ADC em volts.",
+      "optional": true,
+      "options": [
+        {
+          "id": "none",
+          "label": "Sem correção"
+        },
+        {
+          "id": "0",
+          "label": "ADC0"
+        },
+        {
+          "id": "1",
+          "label": "ADC1"
+        },
+        {
+          "id": "2",
+          "label": "ADC2"
+        },
+        {
+          "id": "3",
+          "label": "ADC3"
+        }
+      ]
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "display_unit",
+      "label": "Unidade inicial do campo",
+      "type": "text",
+      "default": "",
+      "help": "Ex.: mV com unidade base V, ou us com unidade base ms. Vazio usa a unidade base.",
+      "optional": true,
+      "when": "manual"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "source",
+      "label": "Origem da leitura externa",
+      "type": "choice",
+      "default": "manual",
+      "help": "A aquisição sempre aguarda conferência do operador; em simulação usa o exemplo.",
+      "optional": true,
+      "options": [
+        {
+          "id": "manual",
+          "label": "Digitação / instrumento externo"
+        },
+        {
+          "id": "rigol",
+          "label": "Rigol DHO800/900"
+        }
+      ],
+      "when": "manual"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "rigol_channel",
+      "label": "Canal do Rigol",
+      "type": "choice",
+      "default": "1",
+      "help": "Canal a consultar, sem reconfigurar o osciloscópio.",
+      "optional": true,
+      "options": [
+        {
+          "id": "1",
+          "label": "CH1"
+        },
+        {
+          "id": "2",
+          "label": "CH2"
+        }
+      ],
+      "when": "manual"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "rigol_metric",
+      "label": "Medida do Rigol",
+      "type": "choice",
+      "default": "VAVG",
+      "help": "Média, pico a pico e patamar são grandezas distintas. Cursores medem intervalo em ms.",
+      "optional": true,
+      "options": [
+        {
+          "id": "VAVG",
+          "label": "Média"
+        },
+        {
+          "id": "VPP",
+          "label": "Pico a pico"
+        },
+        {
+          "id": "VMIN",
+          "label": "Mínimo"
+        },
+        {
+          "id": "VMAX",
+          "label": "Máximo"
+        },
+        {
+          "id": "VTOP",
+          "label": "Patamar superior"
+        },
+        {
+          "id": "TIME",
+          "label": "Intervalo dos cursores"
+        }
+      ],
+      "when": "manual"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "record_reading",
+      "label": "Registrar também a leitura intermediária?",
+      "type": "boolean",
+      "default": false,
+      "help": "Leituras reprovadas sempre são registradas antes da parada.",
+      "optional": true,
+      "when": "manual,read,wait"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "plot",
+      "label": "Enviar valor ao gráfico?",
+      "type": "boolean",
+      "default": false,
+      "help": "Amostras em memória; a exportação é explícita.",
+      "optional": true,
+      "when": "manual,read,wait,calculate,result"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "plot_target",
+      "label": "Alvo do gráfico (fórmula opcional)",
+      "type": "text",
+      "default": "",
+      "help": "Usa a mesma unidade do valor.",
+      "optional": true,
+      "when": "manual,read,wait,calculate,result"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "plot_limit",
+      "label": "Limite superior do gráfico (opcional)",
+      "type": "text",
+      "default": "",
+      "help": "A linha é uma indicação visual; os limites de execução são avaliados separadamente.",
+      "optional": true,
+      "when": "manual,read,wait,calculate,result"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "samples",
+      "label": "Número de leituras",
+      "type": "integer",
+      "default": 1,
+      "help": "Até 3000 leituras. A variável recebe a última; cada amostra pode alimentar o gráfico.",
+      "optional": true,
+      "min": 1,
+      "max": 3000,
+      "when": "read"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "interval_ms",
+      "label": "Intervalo entre leituras (ms)",
+      "type": "integer",
+      "default": 50,
+      "help": "Intervalo solicitado ao sistema operacional, sem precisão de instrumento.",
+      "optional": true,
+      "min": 10,
+      "max": 10000,
+      "when": "read,wait"
+    }
+  },
+  {
+    "kind": "step",
+    "field": {
+      "key": "stable_count",
+      "label": "Leituras consecutivas dentro da faixa",
+      "type": "integer",
+      "default": 1,
+      "help": "A espera só termina depois desta quantidade consecutiva.",
+      "optional": true,
+      "min": 1,
+      "max": 3000,
+      "when": "wait"
+    }
+  }
+]

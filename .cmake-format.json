@@ -1,0 +1,13 @@
+{
+  "format": {
+    "line_width": 100,
+    "tab_size": 4,
+    "dangle_parens": true,
+    "autosort": false,
+    "max_pargs_hwrap": 12,
+    "max_subgroups_hwrap": 4
+  },
+  "markup": {
+    "enable_markup": false
+  }
+}

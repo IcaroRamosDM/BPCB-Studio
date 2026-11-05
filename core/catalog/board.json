@@ -1,0 +1,51 @@
+[
+  {
+    "key": "id",
+    "label": "Identificador do pacote",
+    "type": "id",
+    "default": "minha_pcb_v1",
+    "help": "Nome estável, sem acentos nem espaços; identifica atualizações desta bancada."
+  },
+  {
+    "key": "pcb",
+    "label": "Qual é o nome da PCB?",
+    "type": "text",
+    "default": "Minha PCB",
+    "help": "Nome que o operador escolherá no BPCB."
+  },
+  {
+    "key": "revision",
+    "label": "Qual revisão será testada?",
+    "type": "text",
+    "default": "V1",
+    "help": "A revisão deve corresponder ao esquemático e às conexões."
+  },
+  {
+    "key": "version",
+    "label": "Versão deste pacote",
+    "type": "text",
+    "default": "1.0.0",
+    "help": "Aumente ao publicar alterações; formato 1.0.0."
+  },
+  {
+    "key": "author",
+    "label": "Engenheiro ou equipe responsável",
+    "type": "text",
+    "default": "",
+    "help": "Responsável pelas orientações e pelos limites."
+  },
+  {
+    "key": "connections",
+    "label": "Como preparar e alimentar a placa?",
+    "type": "multiline",
+    "default": "",
+    "help": "Indique fonte, tensão, limite de corrente, polaridade, conectores e instrumentos."
+  },
+  {
+    "key": "notes",
+    "label": "Notas da bancada (opcional)",
+    "type": "multiline",
+    "default": "",
+    "help": "Avisos de montagem e observações; não haverá sinalização de notas se estiver vazio."
+  }
+]

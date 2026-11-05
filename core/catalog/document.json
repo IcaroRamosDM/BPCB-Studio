@@ -1,0 +1,37 @@
+[
+  {
+    "key": "title",
+    "label": "Nome do documento",
+    "type": "text",
+    "default": "Esquemático",
+    "help": "Nome apresentado ao operador."
+  },
+  {
+    "key": "role",
+    "label": "Tipo de documento",
+    "type": "choice",
+    "default": "schematic",
+    "help": "Esquemático, desenho da PCB ou outro documento.",
+    "options": [
+      {
+        "id": "schematic",
+        "label": "Esquemático"
+      },
+      {
+        "id": "pcb",
+        "label": "PCB Print"
+      },
+      {
+        "id": "other",
+        "label": "Outro documento"
+      }
+    ]
+  },
+  {
+    "key": "source",
+    "label": "Arquivo PDF ou SVG",
+    "type": "file",
+    "default": "",
+    "help": "O arquivo será incorporado ao projeto e ao pacote."
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "key": "id",
+    "label": "Identificador do dispositivo",
+    "type": "id",
+    "default": "io1",
+    "help": "Usado para associar os pinos a este dispositivo."
+  },
+  {
+    "key": "name",
+    "label": "Nome apresentado",
+    "type": "text",
+    "default": "Expansor I2C",
+    "help": "Nome legível para o engenheiro."
+  },
+  {
+    "key": "driver",
+    "label": "Qual componente será controlado?",
+    "type": "choice",
+    "default": "tca9534a",
+    "help": "Escolha o componente real ou configure um registrador genérico.",
+    "options": [
+      {
+        "id": "tca9534a",
+        "label": "TCA9534A · GPIO"
+      },
+      {
+        "id": "mcp4728",
+        "label": "MCP4728 · DAC"
+      },
+      {
+        "id": "ads7924",
+        "label": "ADS7924 · ADC"
+      },
+      {
+        "id": "register",
+        "label": "Registrador I2C genérico"
+      }
+    ]
+  },
+  {
+    "key": "transport",
+    "label": "Como está conectado?",
+    "type": "choice",
+    "default": "ch341",
+    "help": "O Studio simula; somente o BPCB acessa a placa.",
+    "options": [
+      {
+        "id": "ch341",
+        "label": "USB CH341"
+      },
+      {
+        "id": "linux_i2c",
+        "label": "Adaptador I2C do Linux"
+      }
+    ]
+  },
+  {
+    "key": "address",
+    "label": "Endereço I2C de 7 bits",
+    "type": "integer",
+    "default": 56,
+    "help": "Aceita decimal ou hexadecimal: 56 ou 0x38.",
+    "min": 8,
+    "max": 119
+  },
+  {
+    "key": "path",
+    "label": "Caminho do adaptador Linux",
+    "type": "text",
+    "default": "/dev/i2c-1",
+    "help": "Usado somente com Adaptador I2C do Linux."
+  },
+  {
+    "key": "vref",
+    "label": "Referência medida do ADC/DAC (V)",
+    "type": "number",
+    "default": 5,
+    "help": "Use a referência real para converter códigos em volts.",
+    "min": 0.1,
+    "max": 5.5
+  },
+  {
+    "key": "output_mask",
+    "label": "Quais pinos do TCA serão saídas?",
+    "type": "pinmask",
+    "default": 0,
+    "help": "Marque cada pino de saída. Os demais permanecem entradas. Cadastre os sinais de todas as saídas.",
+    "min": 0,
+    "max": 255
+  },
+  {
+    "key": "initial_output",
+    "label": "Quais saídas começam em nível alto?",
+    "type": "pinmask",
+    "default": 0,
+    "help": "Marque os pinos cujo nível de encerramento é 1. O latch será preparado antes das direções.",
+    "min": 0,
+    "max": 255
+  }
+]

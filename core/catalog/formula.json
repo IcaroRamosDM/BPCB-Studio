@@ -1,0 +1,16 @@
+[
+  {
+    "key": "id",
+    "label": "Nome da previsão",
+    "type": "id",
+    "default": "corrente_esperada",
+    "help": "Use entre chaves nas orientações ou nos valores esperados."
+  },
+  {
+    "key": "expression",
+    "label": "Fórmula matemática",
+    "type": "expression",
+    "default": "tensao / R1",
+    "help": "Operadores: + - * /. Funções: abs, min, max, sqrt, log, log1p. Não é código executável."
+  }
+]

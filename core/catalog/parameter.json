@@ -1,0 +1,66 @@
+[
+  {
+    "key": "id",
+    "label": "Nome usado nas fórmulas",
+    "type": "id",
+    "default": "tensao",
+    "help": "Não repita o nome de um componente ou medição."
+  },
+  {
+    "key": "label",
+    "label": "Pergunta ao operador",
+    "type": "text",
+    "default": "Tensão solicitada",
+    "help": "Texto que aparece junto ao campo no BPCB."
+  },
+  {
+    "key": "unit",
+    "label": "Unidade",
+    "type": "text",
+    "default": "V",
+    "help": "Use unidades consistentes nas fórmulas."
+  },
+  {
+    "key": "default",
+    "label": "Valor inicial",
+    "type": "number",
+    "default": 5,
+    "help": "Valor mostrado ao abrir o teste.",
+    "min": -1000000000.0,
+    "max": 1000000000.0
+  },
+  {
+    "key": "min",
+    "label": "Menor valor aceito",
+    "type": "number",
+    "default": 0,
+    "help": "Limite inferior obrigatório.",
+    "min": -1000000000.0,
+    "max": 1000000000.0
+  },
+  {
+    "key": "max",
+    "label": "Maior valor aceito",
+    "type": "number",
+    "default": 5,
+    "help": "Limite superior obrigatório.",
+    "min": -1000000000.0,
+    "max": 1000000000.0
+  },
+  {
+    "key": "step",
+    "label": "Resolução desejada",
+    "type": "number",
+    "default": 0.01,
+    "help": "Resolução de configuração.",
+    "min": 1e-12,
+    "max": 1000000000.0
+  },
+  {
+    "key": "help",
+    "label": "Explicação para o operador",
+    "type": "multiline",
+    "default": "",
+    "help": "Explique o parâmetro, os limites e onde conferir seu efeito."
+  }
+]

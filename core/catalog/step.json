@@ -1,0 +1,259 @@
+[
+  {
+    "key": "id",
+    "label": "Identificador da etapa",
+    "type": "id",
+    "default": "etapa1",
+    "help": "Nome único na sequência; uma condição pode apontar para esta etapa."
+  },
+  {
+    "key": "title",
+    "label": "O que acontece nesta etapa?",
+    "type": "text",
+    "default": "Conferir conexões",
+    "help": "Nome curto usado para acompanhar o teste."
+  },
+  {
+    "key": "type",
+    "label": "Qual ação deve acontecer?",
+    "type": "choice",
+    "default": "confirm",
+    "help": "Selecione um bloco; serão mostradas somente suas perguntas.",
+    "options": [
+      {
+        "id": "confirm",
+        "label": "Halt · aguardar OK do operador"
+      },
+      {
+        "id": "manual",
+        "label": "Receber uma medição externa"
+      },
+      {
+        "id": "message",
+        "label": "Exibir uma orientação"
+      },
+      {
+        "id": "delay",
+        "label": "Pausa temporizada"
+      },
+      {
+        "id": "initialize",
+        "label": "Inicializar dispositivo"
+      },
+      {
+        "id": "write",
+        "label": "Comandar uma saída"
+      },
+      {
+        "id": "read",
+        "label": "Ler um canal"
+      },
+      {
+        "id": "calculate",
+        "label": "Calcular um valor"
+      },
+      {
+        "id": "assert",
+        "label": "Parar se estiver fora da faixa"
+      },
+      {
+        "id": "wait",
+        "label": "Aguardar leitura atingir uma faixa"
+      },
+      {
+        "id": "branch",
+        "label": "Desviar por uma condição"
+      },
+      {
+        "id": "result",
+        "label": "Registrar resultado e comparação"
+      }
+    ]
+  },
+  {
+    "key": "message",
+    "label": "O que explicar ao operador?",
+    "type": "multiline",
+    "default": "Confira as conexões antes de continuar.",
+    "help": "Indique pontos, polaridade, unidade e ação esperada. Aceita valores entre chaves.",
+    "when": "confirm,manual,message"
+  },
+  {
+    "key": "variable",
+    "label": "Nome para guardar o valor",
+    "type": "id",
+    "default": "medicao",
+    "help": "Use este nome nas próximas etapas e fórmulas.",
+    "when": "manual,read,calculate,wait"
+  },
+  {
+    "key": "signal",
+    "label": "Qual pino ou canal?",
+    "type": "signal",
+    "default": "",
+    "help": "Escolha um canal cadastrado.",
+    "when": "write,read,wait"
+  },
+  {
+    "key": "device",
+    "label": "Qual dispositivo?",
+    "type": "device",
+    "default": "",
+    "help": "A inicialização prepara o dispositivo conforme seu cadastro.",
+    "when": "initialize"
+  },
+  {
+    "key": "expression",
+    "label": "Valor ou fórmula matemática",
+    "type": "expression",
+    "default": "0",
+    "help": "Em Comandar, define o valor enviado. Em Calcular e Resultado, define o valor calculado.",
+    "when": "write,calculate,assert,branch,result"
+  },
+  {
+    "key": "unit",
+    "label": "Unidade",
+    "type": "text",
+    "default": "V",
+    "help": "Ex.: V, A, ohm, F ou s.",
+    "when": "manual,result"
+  },
+  {
+    "key": "min",
+    "label": "Limite inferior",
+    "type": "number",
+    "default": 0,
+    "help": "Limite aceito; fora da faixa, o operador não pode confirmar.",
+    "min": -1000000000.0,
+    "max": 1000000000.0,
+    "when": "manual,assert,wait"
+  },
+  {
+    "key": "max",
+    "label": "Limite superior",
+    "type": "number",
+    "default": 5,
+    "help": "Defina pela PCB, pelo teste e pela montagem real.",
+    "min": -1000000000.0,
+    "max": 1000000000.0,
+    "when": "manual,assert,wait"
+  },
+  {
+    "key": "seconds",
+    "label": "Quanto tempo aguardar (s)?",
+    "type": "number",
+    "default": 0.2,
+    "help": "Pausa do sistema operacional; não produz pulsos precisos em microssegundos.",
+    "min": 0,
+    "max": 600,
+    "when": "delay"
+  },
+  {
+    "key": "timeout",
+    "label": "Tempo limite desta etapa (s)",
+    "type": "number",
+    "default": 60,
+    "help": "Tempo máximo para a confirmação ou para atingir a faixa.",
+    "min": 0.1,
+    "max": 600,
+    "when": "confirm,manual,wait"
+  },
+  {
+    "key": "sample",
+    "label": "Leitura sugerida na simulação",
+    "type": "number",
+    "default": 1,
+    "help": "Sugestão para ensaiar o roteiro; não substitui uma medição real.",
+    "min": -1000000000.0,
+    "max": 1000000000.0,
+    "when": "manual"
+  },
+  {
+    "key": "operator",
+    "label": "Como comparar?",
+    "type": "choice",
+    "default": "gt",
+    "help": "Se verdadeiro, continua na etapa indicada.",
+    "options": [
+      {
+        "id": "lt",
+        "label": "Menor que"
+      },
+      {
+        "id": "le",
+        "label": "Menor ou igual"
+      },
+      {
+        "id": "eq",
+        "label": "Igual"
+      },
+      {
+        "id": "ne",
+        "label": "Diferente"
+      },
+      {
+        "id": "ge",
+        "label": "Maior ou igual"
+      },
+      {
+        "id": "gt",
+        "label": "Maior que"
+      }
+    ],
+    "when": "branch"
+  },
+  {
+    "key": "right",
+    "label": "Valor da direita",
+    "type": "expression",
+    "default": "0",
+    "help": "Número ou fórmula.",
+    "when": "branch"
+  },
+  {
+    "key": "target",
+    "label": "Continuar em qual etapa?",
+    "type": "target",
+    "default": "",
+    "help": "Destino quando a condição for verdadeira. Ciclos têm limite de execução.",
+    "when": "branch"
+  },
+  {
+    "key": "reference",
+    "label": "Valor esperado, se houver (opcional)",
+    "type": "text",
+    "default": "",
+    "help": "Número ou fórmula; deixe vazio quando o objetivo é descobrir o valor.",
+    "when": "result"
+  },
+  {
+    "key": "tolerance_pct",
+    "label": "Tolerância relativa (%)",
+    "type": "number",
+    "default": 5,
+    "help": "Usa o maior limite entre a tolerância relativa e a absoluta.",
+    "min": 0,
+    "max": 100,
+    "when": "result"
+  },
+  {
+    "key": "tolerance_abs",
+    "label": "Tolerância absoluta",
+    "type": "number",
+    "default": 0,
+    "help": "Na mesma unidade do resultado.",
+    "min": 0,
+    "max": 1000000000.0,
+    "when": "result"
+  },
+  {
+    "key": "repeat_limit",
+    "label": "Máximo de desvios nesta condição",
+    "type": "integer",
+    "default": 10,
+    "min": 1,
+    "max": 1000,
+    "when": "branch",
+    "help": "Se a condição continuar verdadeira após este limite, o teste é interrompido e os comandos de encerramento são enviados."
+  }
+]
