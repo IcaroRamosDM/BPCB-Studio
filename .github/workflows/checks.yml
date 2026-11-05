@@ -1,0 +1,28 @@
+name: Checks
+"on":
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Check maintained C and C++ source style
+        run: |
+          python3 -m venv "$RUNNER_TEMP/style"
+          "$RUNNER_TEMP/style/bin/pip" install -r formatadores-requirements.txt
+          export PATH="$RUNNER_TEMP/style/bin:$PATH"
+          python3 scripts/formatar.py --linguagem c
+      - name: Install Linux dependencies
+        run: bash scripts/instalar-dependencias.sh
+      - name: Build and run serial offline tests
+        env:
+          BPCB_JOBS: "2"
+        run: bash scripts/compilar.sh

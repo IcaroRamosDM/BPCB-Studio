@@ -1,6 +1,10 @@
 # BPCB Studio
 
+[![Checks](https://github.com/IcaroRamosDM/BPCB-Studio/actions/workflows/checks.yml/badge.svg)](https://github.com/IcaroRamosDM/BPCB-Studio/actions/workflows/checks.yml)
+
 Editor de projetos de testes para PCBs. Produz arquivos `.bancada` que são instalados e executados pelo [BPCB](https://github.com/IcaroRamosDM/BPCB).
+
+Na versão 0.6.0, você monta uma sequência no editor, escolhe os canais e simula cada etapa antes de exportar o pacote para o BPCB.
 
 ## Compilar no Linux
 
@@ -25,14 +29,19 @@ cmake --build trabalho/build -j4
 ctest --test-dir trabalho/build --output-on-failure -j1
 ```
 
-## Uso e validação
+## Montar uma sequência
 
-Comece pelos exemplos em simulação. Selecione o adaptador e confira pinagem, tensão,
-alimentação e configuração antes de autorizar qualquer transmissão. Recursos disponíveis
-dependem do modelo, modo, driver e dispositivo; listar um adaptador não comprova que
-todos os protocolos foram qualificados em hardware. Consulte os documentos em `docs/`.
+Abra um projeto em `examples/`, confira as entradas e as unidades e rode a simulação. O depurador mostra as variáveis antes de cada etapa. Exporte o pacote para executá-lo no BPCB com a placa conectada.
 
-Histórico de resultados exige escolha explícita do usuário e começa desativado.
-O Studio edita e exporta as sequências; a execução de produção ocorre no BPCB.
+[Etapas de comunicação](docs/COMUNICACAO.md) · [Exemplos do laboratório](docs/LABORATORIO.md) · [Depurador de sequências](docs/WORKBENCH.md)
 
-Este repositório publica os fontes; não inclui os antigos instaladores locais.
+## Autor
+
+**Icaro Ramos Rodrigues dos Santos**<br>
+Engenheiro Eletrônico
+
+Embedded Systems | Firmware | C | C++ | Python | Dart | Assembly | Hardware Design | PCB Design | STM32 | ARM Cortex-M | Linux | Windows | RISC-V | Verilog | SystemVerilog | UVM | Design Verification | Instrumentation | Signal Processing | Qt | FLTK
+
+GitHub: [IcaroRamosDM](https://github.com/IcaroRamosDM)<br>
+LinkedIn: [icaro-ramos-r](https://www.linkedin.com/in/icaro-ramos-r/)<br>
+[icaroelt@gmail.com](mailto:icaroelt@gmail.com)
